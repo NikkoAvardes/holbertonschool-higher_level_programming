@@ -1,7 +1,11 @@
 Test file for add_integer function
 
 Import the function:
->>> from 0-add_integer import add_integer
+>>> import importlib.util
+>>> spec = importlib.util.spec_from_file_location("add_integer_module", "0-add_integer.py")
+>>> add_integer_module = importlib.util.module_from_spec(spec)
+>>> spec.loader.exec_module(add_integer_module)
+>>> add_integer = add_integer_module.add_integer
 
 Basic tests:
 >>> add_integer(1, 2)
