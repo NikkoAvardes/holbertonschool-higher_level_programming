@@ -1,12 +1,13 @@
-#!/usr/bin/env python3
-"""Module that contains add_integer function.
+#!/usr/bin/python3
+"""Module that adds two integers.
 
-This module provides functionality for adding integers.
-
-It includes type checking and conversion."""
+This module contains a function that adds two integers or floats
+after casting them to integers.
+"""
 
 def add_integer(a, b=98):
-    """Adds 2 integers.
+    """
+    Adds 2 integers.
     
     """
     if not isinstance(a, (int, float)):
