@@ -1,17 +1,48 @@
 #!/usr/bin/python3
-"""Module qui définit une classe Square avec impression"""
+"""Module qui définit une classe Square avec position"""
 
 
 class Square:
-    """Classe qui définit un carré avec impression"""
+    """Classe qui définit un carré avec position"""
 
-    def __init__(self, size=0):
-        """Initialise un carré avec une taille donnée
+    def __init__(self, size=0, position=(0, 0)):
+        """Initialise un carré avec une taille et position données
 
         Args:
             size: La taille du carré (défaut: 0)
+            position: La position du carré (défaut: (0, 0))
         """
         self.size = size
+        self.position = position
+
+    @property
+    def position(self):
+        """Getter pour la position du carré
+
+        Returns:
+            La position du carré
+        """
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        """Setter pour la position du carré
+
+        Args:
+            value: La nouvelle position du carré
+
+        Raises:
+            TypeError: Si value n'est pas un tuple de 2 entiers positifs
+        """
+        if not isinstance(value, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     @property
     def size(self):
@@ -48,14 +79,17 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        """Imprime le carré avec le caractère #
+        """Imprime le carré avec le caractère # en tenant compte de la position
 
         Si size est égal à 0, imprime une ligne vide
+        La position détermine où imprimer le carré
         """
         if self.__size == 0:
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
+            return
+
+        for i in range(self.__position[1]):
+            print()
+
+        for i in range(self.__size):
+            print(" " * self.__position[0] + "#" * self.__size)
