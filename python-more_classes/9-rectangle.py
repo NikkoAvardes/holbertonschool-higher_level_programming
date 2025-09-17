@@ -8,6 +8,9 @@ le périmètre, l'affichage, et des méthodes statiques et de classe complètes.
 """
 
 
+import re
+
+
 class Rectangle:
     """
     Classe représentant un rectangle géométrique avec les fonctionnalités.
@@ -36,6 +39,14 @@ class Rectangle:
             width (int, optional): La largeur du rectangle. Par défaut 0.
             height (int, optional): La hauteur du rectangle. Par défaut 0.
         """
+        if not isinstance(width, int):
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if not isinstance(height, int):
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
         Rectangle.number_of_instances += 1
         self.__width = width
         self.__height = height
@@ -112,6 +123,8 @@ class Rectangle:
         Returns:
             int: Le périmètre du rectangle (2 × (largeur + hauteur)).
         """
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
