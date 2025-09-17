@@ -12,7 +12,8 @@ class Rectangle:
     """
     Classe représentant un rectangle géométrique.
 
-    et offre des méthodes pour calculer l'aire et le périmètre.
+    Cette classe permet de créer des rectangles avec une largeur et
+    une hauteur, et offre des méthodes pour calculer l'aire et le périmètre.
 
     Attributes:
         width (int): La largeur du rectangle (valeur privée)
