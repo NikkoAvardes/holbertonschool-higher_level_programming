@@ -95,10 +95,13 @@ class Rectangle:
         return self.__height * self.__width
 
     def perimeter(self):
+
         """
         Calcule le périmètre du rectangle.
 
         Returns:
             int: Le périmètre du rectangle (2 × (largeur + hauteur)).
         """
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return 2 * (self.__width + self.__height)
