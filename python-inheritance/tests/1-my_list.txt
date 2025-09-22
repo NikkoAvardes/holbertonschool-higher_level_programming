@@ -1,3 +1,86 @@
-Test file for MyList class
+Testing MyList class
+===================
 
-# Tests à écrire pour la classe MyList
+This module tests the MyList class that inherits from list.
+
+First, import the class:
+    >>> MyList = __import__('1-my_list').MyList
+
+Basic tests:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+Test with empty list:
+    >>> empty_list = MyList()
+    >>> empty_list.print_sorted()
+    []
+
+Test with one element:
+    >>> single_list = MyList()
+    >>> single_list.append(42)
+    >>> single_list.print_sorted()
+    [42]
+
+Test with negative numbers:
+    >>> neg_list = MyList()
+    >>> neg_list.append(-5)
+    >>> neg_list.append(-1)
+    >>> neg_list.append(-10)
+    >>> neg_list.print_sorted()
+    [-10, -5, -1]
+
+Test with duplicates:
+    >>> dup_list = MyList()
+    >>> dup_list.append(3)
+    >>> dup_list.append(1)
+    >>> dup_list.append(3)
+    >>> dup_list.append(2)
+    >>> dup_list.append(1)
+    >>> dup_list.print_sorted()
+    [1, 1, 2, 3, 3]
+
+Test with mixed positive and negative:
+    >>> mixed_list = MyList()
+    >>> mixed_list.append(-1)
+    >>> mixed_list.append(5)
+    >>> mixed_list.append(0)
+    >>> mixed_list.append(-3)
+    >>> mixed_list.append(2)
+    >>> mixed_list.print_sorted()
+    [-3, -1, 0, 2, 5]
+
+Test that original list is not modified:
+    >>> original = MyList([9, 1, 5])
+    >>> print(original)
+    [9, 1, 5]
+    >>> original.print_sorted()
+    [1, 5, 9]
+    >>> print(original)
+    [9, 1, 5]
+
+Test inheritance from list:
+    >>> isinstance(MyList(), list)
+    True
+
+Test type:
+    >>> type(MyList())
+    <class '1-my_list.MyList'>
+
+Test with list constructor:
+    >>> my_list2 = MyList([3, 1, 4])
+    >>> my_list2.print_sorted()
+    [1, 3, 4]
+
+Test method exists:
+    >>> hasattr(MyList, 'print_sorted')
+    True
