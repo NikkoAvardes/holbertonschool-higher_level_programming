@@ -23,7 +23,6 @@ class Circle(Shape):
     """Circle shape."""
 
     def __init__(self, radius):
-        if radius > 0:
             self.__radius = radius
 
     def area(self):
