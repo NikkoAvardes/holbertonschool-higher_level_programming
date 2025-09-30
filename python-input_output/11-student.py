@@ -40,11 +40,13 @@ class Student:
                     new_dict[atr] = self.__dict__[atr]
             return new_dict
         else:
-            """Return all attributes if no filter specified"""
             return self.__dict__
 
     def reload_from_json(self, json):
-        """Replace all attributes of the Student instance."""
-        """Update all attributes from the json dictionary"""
+        """Replace all attributes of the Student instance.
+
+        Args:
+            json (dict): Dictionary containing new attribute values.
+        """
         for key, value in json.items():
             setattr(self, key, value)
