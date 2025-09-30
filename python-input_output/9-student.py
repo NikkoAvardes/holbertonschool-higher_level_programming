@@ -9,10 +9,10 @@ convert the student instance to a JSON-compatible dictionary.
 
 class Student:
     """Represent a student with personal information.
-    
+
     This class encapsulates student data including first name, last name,
     and age, providing methods to work with this data in JSON format.
-    
+
     Attributes:
         first_name (str): The student's first name.
         last_name (str): The student's last name.
@@ -21,7 +21,7 @@ class Student:
 
     def __init__(self, first_name, last_name, age):
         """Initialize a new Student instance.
-        
+
         Args:
             first_name (str): The student's first name.
             last_name (str): The student's last name.
@@ -33,10 +33,10 @@ class Student:
 
     def to_json(self):
         """Return the dictionary representation of the Student instance.
-        
+
         This method provides a JSON-compatible dictionary containing all
         the student's attributes, suitable for serialization.
-        
+
         Returns:
             dict: A dictionary containing all instance attributes.
         """

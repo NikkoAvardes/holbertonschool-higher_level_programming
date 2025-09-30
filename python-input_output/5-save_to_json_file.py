@@ -9,19 +9,19 @@ import json
 
 def save_to_json_file(my_obj, filename):
     """Save a Python object to a file in JSON format.
-    
+
     This function serializes a Python object to JSON and writes it to a file.
     The file is created or overwritten with the JSON representation of the
     object.
-    
+
     Args:
         my_obj: Any JSON-serializable Python object to be saved
                (dict, list, str, int, float, bool, None).
         filename (str): The path to the file where the JSON data will be saved.
-                       
+
     Returns:
         None: This function performs file I/O and returns nothing.
-        
+
     Raises:
         TypeError: If the object is not JSON serializable.
         IOError: If there are issues writing to the file.
