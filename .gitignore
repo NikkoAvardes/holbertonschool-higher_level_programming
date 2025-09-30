@@ -76,8 +76,6 @@ target/
 # IPython
 profile_default/
 ipython_config.py
-*txt
-*json
 
 # pyenv
 .python-version
