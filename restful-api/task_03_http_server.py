@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """Simple HTTP server exposing a few GET endpoints."""
 
 import http.server
