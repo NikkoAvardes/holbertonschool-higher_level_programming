@@ -1,7 +1,9 @@
+#!/usr/bin/env python3
 """Simple HTTP server exposing a few GET endpoints."""
 
 import http.server
 import json
+
 
 
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
