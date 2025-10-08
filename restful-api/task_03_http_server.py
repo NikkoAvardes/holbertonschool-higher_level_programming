@@ -5,7 +5,6 @@ import http.server
 import json
 
 
-
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     # Handle HTTP GET requests for predefined routes.
     def do_GET(self):
