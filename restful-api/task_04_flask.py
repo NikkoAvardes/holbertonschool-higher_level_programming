@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # In-memory users store (example only, not persistent)
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 
 @app.route("/")
