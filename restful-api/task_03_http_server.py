@@ -1,27 +1,36 @@
 #!/usr/bin/python3
-"""Simple HTTP server exposing a few GET endpoints."""
+"""Simple HTTP server exposing a few GET endpoints.
+
+Provides a minimal HTTP server using http.server.BaseHTTPRequestHandler
+with routes: /, /data, /info, /status and a 404 fallback.
+"""
 
 import http.server
 import json
 
 
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
-    # Handle HTTP GET requests for predefined routes.
+    """HTTP request handler exposing a few simple GET routes."""
+
     def do_GET(self):
-        # Root endpoint: return plain text greeting.
+        """Handle GET requests for predefined routes.
+
+        The method checks the request path and writes the appropriate
+        headers and body for each supported endpoint.
+        """
         if self.path == '/':
+            # Root endpoint: return plain text greeting.
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Hello, this is a simple API!")
-        # Data endpoint: return JSON payload with user data.
         elif self.path == '/data':
+            # Data endpoint: return JSON payload with user data.
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(data).encode())
-        # Info endpoint: return JSON with version and description.
         elif self.path == '/info':
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -31,14 +40,14 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
                 "description": "A simple API built with http.server",
             }
             self.wfile.write(json.dumps(info).encode())
-        # Status endpoint: return plain text status OK.
         elif self.path == '/status':
+            # Status endpoint: return plain text status OK.
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Ok")
-        # Unknown endpoint: respond with 404.
         else:
+            # Unknown endpoint: respond with 404.
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
@@ -49,7 +58,7 @@ def run(
     server_class=http.server.HTTPServer,
     handler_class=SimpleHTTPRequestHandler,
 ):
-    # Create and start the HTTP server on port 8000.
+    """ Create and start the HTTP server on port 8000."""
     server_address = ('', 8000)
     httpd = server_class(server_address, handler_class)
     httpd.serve_forever()

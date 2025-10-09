@@ -1,5 +1,5 @@
-# Module : requêtes vers l'API et écriture des résultats en CSV
 import csv
+# Module : requêtes vers l'API et écriture des résultats en CSV
 import requests
 
 
