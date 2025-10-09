@@ -10,7 +10,7 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # In-memory users store (example only, not persistent)
-users = {}
+users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
 
 
 @app.route("/")
@@ -22,7 +22,7 @@ def home():
 @app.route("/data")
 def list_users():
     # Return list of usernames as JSON.
-    return jsonify(list(users.keys()))
+    return jsonify(list(users.values()))
 
 
 @app.route('/status')
@@ -45,10 +45,10 @@ def add_user():
     data = request.get_json()
     if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
-    users[data['username']] = data
+    users[data["username"]] = data
     return jsonify({"message": "User added", "user": data}), 201
 
 
 if __name__ == "__main__":
     # Run the Flask development server.
-    app.run(debug=True)
+    app.run()
