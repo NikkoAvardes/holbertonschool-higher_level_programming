@@ -10,7 +10,15 @@ import json
 
 
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
-    """HTTP request handler exposing a few simple GET routes."""
+    """HTTP request handler exposing a few simple GET routes.
+
+    The handler implements do_GET to respond to a fixed set of paths:
+    - /       : plain text greeting
+    - /data   : JSON user data
+    - /info   : JSON info about the API
+    - /status : plain text 'Ok'
+    Other paths return 404.
+    """
 
     def do_GET(self):
         """Handle GET requests for predefined routes.
