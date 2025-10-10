@@ -12,7 +12,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 
 app.config['JWT_SECRET_KEY'] = 'super-secret'
-app.config["JWT_COOKIE_SECURE"] = False
 app.config['JWT_ACCESS_CSRF_DISABLED'] = True
 
 jwt = JWTManager(app)
@@ -90,7 +89,7 @@ def login():
     return jsonify({"error": "Invalid credentials"}), 401
 
 
-@app.route("jwt-protected")
+@app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
     """
