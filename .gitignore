@@ -2,7 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+*validate_script.py
+*test_task_05_basic_security.py
 # C extensions
 *.so
 *.cfg
