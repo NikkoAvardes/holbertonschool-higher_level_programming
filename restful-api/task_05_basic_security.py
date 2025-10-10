@@ -58,7 +58,7 @@ def basic_protected():
     Returns:
         tuple: JSON response with success message and HTTP status code 200
     """
-    return jsonify(message="Basic Auth: Access Granted"), 200
+    return "Basic Auth: Access Granted"
 
 
 @app.route("/login", methods=["POST"])
@@ -74,6 +74,8 @@ def login():
     """
     try:
         data = request.get_json(force=True)
+        if data is None:
+            return jsonify({"error": "Invalid JSON"}), 400
         username = data.get("username", '')
         password = data.get("password", '')
     except (ValueError, TypeError, UnicodeDecodeError):
