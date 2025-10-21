@@ -1,3 +1,4 @@
+-- Crée la table second_table et l'initialise avec des données d'exemple
 CREATE TABLE IF NOT EXISTS second_table (
 	id INT,
 	name VARCHAR(256),
