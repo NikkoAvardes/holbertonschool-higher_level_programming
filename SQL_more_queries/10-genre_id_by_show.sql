@@ -1,0 +1,1 @@
+-- Liste toutes les émissions qui ont au moins un genre lié

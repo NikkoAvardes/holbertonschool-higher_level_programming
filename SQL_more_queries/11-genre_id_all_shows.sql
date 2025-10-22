@@ -1,0 +1,1 @@
+-- Liste toutes les émissions avec leurs genre_id (affiche NULL si pas de genre)

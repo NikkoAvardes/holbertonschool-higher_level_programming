@@ -1,0 +1,1 @@
+-- Liste toutes les émissions qui n'ont aucun genre lié

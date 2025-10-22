@@ -1,0 +1,1 @@
+-- Liste toutes les villes avec leurs états en utilisant JOIN

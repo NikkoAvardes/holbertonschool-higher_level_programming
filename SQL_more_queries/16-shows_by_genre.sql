@@ -1,0 +1,1 @@
+-- Liste toutes les émissions et tous les genres liés (NULL si pas de genre)

@@ -1,0 +1,1 @@
+-- Liste tous les genres et le nombre d'émissions liées à chaque genre

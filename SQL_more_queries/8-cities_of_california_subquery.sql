@@ -1,0 +1,1 @@
+-- Liste toutes les villes de Californie en utilisant une sous-requête (sans JOIN)
