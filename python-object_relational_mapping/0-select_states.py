@@ -22,33 +22,26 @@ def main():
 
     Affiche tous les états triés par states.id en ordre croissant.
     """
-    # Établir la connexion à la base de données MySQL
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],      # Nom d'utilisateur MySQL
-        passwd=sys.argv[2],    # Mot de passe MySQL
-        db=sys.argv[3]         # Nom de la base de données
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
     )
 
-    # Créer un curseur pour exécuter les requêtes
     cur = db.cursor()
 
-    # Exécuter la requête pour récupérer tous les états triés par ID
     cur.execute("SELECT * FROM states ORDER BY states.id ASC")
 
-    # Récupérer tous les résultats de la requête
     rows = cur.fetchall()
 
-    # Afficher chaque ligne de résultat (tuple avec id et nom)
     for row in rows:
         print(row)
 
-    # Fermer le curseur et la connexion pour libérer les ressources
     cur.close()
     db.close()
 
 
 if __name__ == "__main__":
-    # Exécuter seulement si le script est lancé directement
     main()
