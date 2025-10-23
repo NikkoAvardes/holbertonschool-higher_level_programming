@@ -11,29 +11,23 @@ import sys
 
 def main():
     """Se connecte à MySQL et affiche l'état correspondant au nom."""
-    try:
-        db = MySQLdb.connect(
-            host='localhost',
-            user=sys.argv[1],
-            passwd=sys.argv[2],
-            db=sys.argv[3]
-        )
+    db = MySQLdb.connect(
+        host='localhost',
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+    )
 
-        cur = db.cursor()
-        cur.execute("SELECT * FROM states WHERE name = %s "
-                    "ORDER BY id ASC", (sys.argv[4],))
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states WHERE name = %s "
+                "ORDER BY id ASC", (sys.argv[4],))
 
-        rows = cur.fetchall()
-        for row in rows:
-            print(row)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
-    except MySQLdb.Error as e:
-        print(f"Error {e.args[0]}: {e.args[1]}")
-    finally:
-        if cur:
-            cur.close()
-        if db:
-            db.close()
+    cur.close()
+    db.close()
 
 
 if __name__ == "__main__":
