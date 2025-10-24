@@ -29,6 +29,6 @@ if __name__ == "__main__":
 
     state = session.query(State).filter_by(id=new_id).first()
     if state:
-        state.name = new_name
+        state.name = new_name  # type: ignore
         session.commit()
     session.close()
