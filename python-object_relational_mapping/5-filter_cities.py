@@ -30,9 +30,9 @@ def main():
 
     query = ("SELECT cities.name FROM cities "
              "JOIN states ON cities.state_id = states.id "
-             "WHERE states.name = %s ORDER BY cities.id ASC")
+             "WHERE states.name = '{}' ORDER BY cities.id ASC")
 
-    cur.execute(query, (state_name,))
+    cur.execute(query.format(state_name,))
 
     rows = cur.fetchall()
     cities = [row[0] for row in rows]
