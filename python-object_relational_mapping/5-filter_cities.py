@@ -1,58 +1,25 @@
 #!/usr/bin/python3
-"""Filter cities by state name from MySQL database.
-
-This script connects to a MySQL server and displays all cities that belong
-to a specific state. The state name is provided as a command line argument.
-Uses parameterized queries to prevent SQL injection attacks.
-
-Usage:
-    python3 5-filter_cities.py <username> <password> <database> <state_name>
-
-Arguments:
-    username: MySQL username
-    password: MySQL password
-    database: Database name
-    state_name: State name to filter cities by
-"""
+"""Filter cities by state name from the database."""
 import MySQLdb
 import sys
 
 
 def main():
-    """Connect to MySQL database and display cities filtered by state name.
+    """Connect to MySQL and display cities for a given state name."""
+    db = MySQLdb.connect(host="localhost",
+                         user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3])
+    cursor = db.cursor()
+    cursor.execute("SELECT name FROM cities WHERE state_id = (SELECT id "
+                   "FROM states WHERE name = %s) "
+                   "ORDER BY cities.id", (sys.argv[4],))
+    results = cursor.fetchall()
 
-    Retrieves command line arguments, establishes database connection,
-    executes parameterized query to fetch cities by state name,
-    and displays results in comma-separated format.
-    """
-    user_name = sys.argv[1]
-    user_passwd = sys.argv[2]
-    data_base = sys.argv[3]
-    state_name = sys.argv[4]
-
-    db = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=user_name,
-        passwd=user_passwd,
-        db=data_base
-    )
-    cur = db.cursor()
-
-    query = (
-        "SELECT name FROM cities WHERE state_id = (SELECT id "
-        "FROM states WHERE name = %s) "
-        "ORDER BY cities.id"
-    )
-
-    cur.execute(query, (state_name,))
-
-    rows = cur.fetchall()
-
-    cities = [row[0] for row in rows]
+    cities = [row[0] for row in results]
     print(", ".join(cities))
 
-    cur.close()
+    cursor.close()
     db.close()
 
 

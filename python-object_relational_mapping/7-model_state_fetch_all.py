@@ -15,7 +15,7 @@ import sys
 
 
 def main():
-    """Connect to MySQL database and display all State objects ordered by id."""
+    """Connect to MySQL database and display State objects ordered by id."""
     user_name = sys.argv[1]
     user_passwd = sys.argv[2]
     data_base = sys.argv[3]
