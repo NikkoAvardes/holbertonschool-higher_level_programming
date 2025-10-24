@@ -22,7 +22,7 @@ def main():
 
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-            user_name, user_passwd, data_base),
+            user_name, user_passwd.replace('@', '%40'), data_base),
         pool_pre_ping=True
     )
     Base.metadata.create_all(engine)
