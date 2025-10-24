@@ -1,19 +1,30 @@
 #!/usr/bin/python3
-"""
-Filter cities by state name from MySQL database.
+"""Filter cities by state name from MySQL database.
 
-This script connects to a MySQL server and displays all cities
-that belong to a specific state. The state name is provided as
-a command line argument. Uses parameterized queries to prevent
-SQL injection attacks. Takes 4 arguments: mysql username,
-mysql password, database name, and state name to filter by.
+This script connects to a MySQL server and displays all cities that belong
+to a specific state. The state name is provided as a command line argument.
+Uses parameterized queries to prevent SQL injection attacks.
+
+Usage:
+    python3 5-filter_cities.py <username> <password> <database> <state_name>
+
+Arguments:
+    username: MySQL username
+    password: MySQL password
+    database: Database name
+    state_name: State name to filter cities by
 """
 import MySQLdb
 import sys
 
 
 def main():
-    """Connect to MySQL and display cities filtered by state name."""
+    """Connect to MySQL database and display cities filtered by state name.
+
+    Retrieves command line arguments, establishes database connection,
+    executes parameterized query to fetch cities by state name,
+    and displays results in comma-separated format.
+    """
     user_name = sys.argv[1]
     user_passwd = sys.argv[2]
     data_base = sys.argv[3]
