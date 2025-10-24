@@ -23,7 +23,9 @@ def main():
 
     cur = db.cursor()
 
-    query = "SELECT * FROM cities ORDER BY id ASC"
+    query = ("SELECT cities.id, cities.name, states.name FROM cities "
+             "JOIN states ON cities.state_id = states.id "
+             "ORDER BY cities.id ASC")
     cur.execute(query)
 
     rows = cur.fetchall()
