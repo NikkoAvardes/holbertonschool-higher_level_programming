@@ -1,4 +1,13 @@
 #!/usr/bin/python3
+"""
+Add a new State object "Louisiana" to MySQL database using SQLAlchemy ORM.
+
+This script connects to a MySQL database and creates a new State object
+with the name "Louisiana". After creation, it prints the new state's ID
+and commits the transaction to the database.
+
+Usage: python3 11-model_state_insert.py <username> <password> <database>
+"""
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
