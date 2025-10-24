@@ -28,6 +28,7 @@ def main():
     user_name = sys.argv[1]
     user_passwd = sys.argv[2]
     data_base = sys.argv[3]
+    state_name = sys.argv[4]
 
     db = MySQLdb.connect(
         host='localhost',
@@ -38,9 +39,14 @@ def main():
     )
     cur = db.cursor()
 
-    cur.execute("SELECT name FROM cities WHERE state_id = (SELECT id "
-                "FROM states WHERE name = %s) "
-                "ORDER BY cities.id", (sys.argv[4],))
+    query = (
+        "SELECT name FROM cities WHERE state_id = (SELECT id "
+        "FROM states WHERE name = %s) "
+        "ORDER BY cities.id"
+    )
+
+    cur.execute(query, (state_name,))
+
     rows = cur.fetchall()
 
     cities = [row[0] for row in rows]
