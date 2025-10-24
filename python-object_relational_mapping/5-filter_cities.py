@@ -14,16 +14,19 @@ import sys
 
 def main():
     """Connect to MySQL and display cities filtered by state name."""
+    user_name = sys.argv[1]
+    user_passwd = sys.argv[2]
+    data_base = sys.argv[3]
+    state_name = sys.argv[4]
+
     db = MySQLdb.connect(
-        host="localhost",
+        host='localhost',
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
+        user=user_name,
+        passwd=user_passwd,
+        db=data_base
     )
     cur = db.cursor()
-
-    state_name = sys.argv[4]
 
     query = ("SELECT cities.name FROM cities "
              "JOIN states ON cities.state_id = states.id "
