@@ -32,8 +32,8 @@ def main():
     cur.execute(query, (state_name,))
 
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    cities = [row[0] for row in rows]
+    print(", ".join(cities))
 
     cur.close()
     db.close()
