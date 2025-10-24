@@ -15,7 +15,6 @@ import sys
 
 
 if __name__ == "__main__":
-    """Connect to MySQL database and display State objects ordered by id."""
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'
         .format(sys.argv[1],
