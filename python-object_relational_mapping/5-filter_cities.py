@@ -39,9 +39,11 @@ def main():
     )
     cur = db.cursor()
 
-    query = ("SELECT cities.name FROM cities "
-             "JOIN states ON cities.state_id = states.id "
-             "WHERE states.name = %s ORDER BY states.id ASC")
+    query = (
+        "SELECT name FROM cities WHERE state_id = (SELECT id "
+        "FROM states WHERE name = %s) "
+        "ORDER BY cities.id"
+    )
 
     cur.execute(query, (state_name,))
 
