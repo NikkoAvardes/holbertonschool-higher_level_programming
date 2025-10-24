@@ -16,15 +16,12 @@ import sys
 
 def main():
     """Connect to MySQL database and display State objects ordered by id."""
-    user_name = sys.argv[1]
-    user_passwd = sys.argv[2]
-    data_base = sys.argv[3]
-
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-            user_name, user_passwd, data_base),
-        pool_pre_ping=True
-    )
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'
+        .format(sys.argv[1],
+                sys.argv[2],
+                sys.argv[3]), pool_pre_ping=True)
+
     Base.metadata.create_all(engine)
 
     Session = sessionmaker(bind=engine)
