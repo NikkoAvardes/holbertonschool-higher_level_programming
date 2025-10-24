@@ -1,11 +1,23 @@
 #!/usr/bin/python3
-from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
+"""
+City model module for SQLAlchemy ORM.
 
-Base = declarative_base()
+This module defines the City class that represents a city in the database.
+City objects are linked to State objects through a foreign key relationship.
+"""
+from sqlalchemy import Column, Integer, String, ForeignKey
+from model_state import Base
 
 
 class City(Base):
+    """
+    City class that represents a city in the database.
+
+    Attributes:
+        id (int): Auto-generated unique primary key
+        name (str): City name, max 128 characters
+        state_id (int): Foreign key reference to states.id
+    """
     __tablename__ = 'cities'
 
     id = Column(Integer,
@@ -17,4 +29,4 @@ class City(Base):
     name = Column(String(128),
                   nullable=False)
 
-    state_id = Column(Integer, ForeignKey('state.id'), nullable=False,)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
