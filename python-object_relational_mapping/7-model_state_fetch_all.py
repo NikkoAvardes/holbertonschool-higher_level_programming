@@ -21,7 +21,7 @@ def main():
     data_base = sys.argv[3]
 
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+        'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
             user_name, user_passwd, data_base),
         pool_pre_ping=True
     )
