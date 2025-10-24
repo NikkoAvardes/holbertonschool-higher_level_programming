@@ -14,7 +14,7 @@ from model_state import Base, State
 import sys
 
 
-def main():
+if __name__ == "__main__":
     """Connect to MySQL database and display State objects ordered by id."""
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost:3306/{}'
@@ -31,7 +31,3 @@ def main():
         print(f"{state.id}: {state.name}")
 
     session.close()
-
-
-if __name__ == "__main__":
-    main()
