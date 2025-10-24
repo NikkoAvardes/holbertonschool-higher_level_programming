@@ -14,8 +14,8 @@ from model_state import Base, State
 import sys
 
 
-def main():
-    """Connect to MySQL database and display all State objects by id."""
+if __name__ == "__main__":
+    """Connect to MySQL database and display all State objects ordered by id."""
     user_name = sys.argv[1]
     user_passwd = sys.argv[2]
     data_base = sys.argv[3]
@@ -36,7 +36,3 @@ def main():
             print(f"{state.id}: {state.name}")
     finally:
         session.close()
-
-
-if __name__ == "__main__":
-    main()
