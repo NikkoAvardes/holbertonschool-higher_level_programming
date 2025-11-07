@@ -5,5 +5,5 @@ if (argv[2] != null) {
 }
 else
   {
-	console.log('No argument');
+  console.log('No argument');
   }
