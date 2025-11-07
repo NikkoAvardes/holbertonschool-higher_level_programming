@@ -4,7 +4,7 @@ if (isNaN(x)) {
   console.log('Missing size');
 } else {
   for (let row = 0; row < x; row++) {
-    let line = 'E';
+    let line = '';
     for (let col = 0; col < x; col++) {
       line += 'X';
     }
