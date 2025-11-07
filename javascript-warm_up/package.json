@@ -1,5 +1,19 @@
 {
 	"dependencies": {
 		"semistandard": "^17.0.0"
-	}
+	},
+	"name": "javascript-warm_up",
+	"version": "1.0.0",
+	"description": "JS",
+	"main": "0-javascript_is_amazing.js",
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lint": "semistandard *.js",
+		"lint-fix": "semistandard --fix *.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs"
 }

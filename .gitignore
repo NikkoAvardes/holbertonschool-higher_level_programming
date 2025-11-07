@@ -268,3 +268,6 @@ test_*.py
 shcoder
 *txt
 
+
+# ESLint configuration
+.eslintrc.json
