@@ -7,7 +7,6 @@ import os
 
 app = Flask(__name__)
 
-# Get the directory where this script is located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
