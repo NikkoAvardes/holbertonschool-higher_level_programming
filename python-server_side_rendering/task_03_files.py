@@ -3,11 +3,8 @@
 from flask import Flask, render_template, request
 import json
 import csv
-import os
 
 app = Flask(__name__)
-
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 @app.route('/')
@@ -45,16 +42,14 @@ def products():
 
     if source == 'json':
         try:
-            json_path = os.path.join(BASE_DIR, 'products.json')
-            with open(json_path) as json_file:
+            with open('products.json') as json_file:
                 products_list = json.load(json_file)
         except FileNotFoundError:
             return render_template('product_display.html',
                                    error="JSON file not found")
     elif source == 'csv':
         try:
-            csv_path = os.path.join(BASE_DIR, 'products.csv')
-            with open(csv_path) as csv_file:
+            with open('products.csv') as csv_file:
                 reader = csv.DictReader(csv_file)
                 products_list = []
                 for row in reader:
