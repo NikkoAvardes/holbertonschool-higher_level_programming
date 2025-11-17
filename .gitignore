@@ -267,8 +267,24 @@ test_*.py
 *_test.py
 
 shcoder
-*txt
+
 
 
 # ESLint configuration
 .eslintrc.json
+python-input_output/tests/0-read_file.txt
+python-input_output/tests/1-write_file.txt
+python-input_output/tests/2-append_write.txt
+python-input_output/tests/3-to_json_string.txt
+python-input_output/tests/4-from_json_string.txt
+python-input_output/tests/5-save_to_json_file.txt
+python-input_output/tests/6-load_from_json_file.txt
+python-input_output/tests/8-class_to_json.txt
+python-input_output/tests/9-student.txt
+python-input_output/tests/10-student.txt
+python-input_output/tests/11-student.txt
+python-input_output/tests/12-pascal_triangle.txt
+python-server_side_rendering/output_1.txt
+python-server_side_rendering/output_2.txt
+python-server_side_rendering/output_3.txt
+python-server_side_rendering/template.txt
